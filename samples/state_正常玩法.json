@@ -1,0 +1,300 @@
+{
+  "version": 4,
+  "initialized": true,
+  "created_at": 1793199596.2119892,
+  "chat": {
+    "total": 326,
+    "days": {
+      "2026-11-08": 3,
+      "2026-11-07": 10,
+      "2026-11-06": 5,
+      "2026-11-05": 3,
+      "2026-11-04": 12,
+      "2026-11-03": 8,
+      "2026-11-02": 6
+    },
+    "last_ts": 1794146396.2119892
+  },
+  "gifts": {
+    "candy": {
+      "count": 1,
+      "sent": 0,
+      "last_sent_ts": 0.0
+    }
+  },
+  "unlocked": {},
+  "revealed": {},
+  "wish": 68.0,
+  "wish_peak": 74.0,
+  "wish_day": "",
+  "wish_gain_day": 0.0,
+  "wish_events": [
+    {
+      "ts": 1794149996.2094865,
+      "delta": 3.0,
+      "reason": "解锁礼物：加倍佳棒棒糖"
+    }
+  ],
+  "daily_wish": {
+    "day": "2026-11-08",
+    "id": "praise",
+    "done": false,
+    "done_ts": 0.0,
+    "hinted": false
+  },
+  "daily_wishes_done": 0,
+  "intimacy_peak": 0.0,
+  "expectation_peak": 0.0,
+  "local_affection": 0.0,
+  "meters": {
+    "intimacy": 62.0,
+    "joy": 44.0,
+    "attachment": 51.0,
+    "soothe": 38.0
+  },
+  "meter_levels": {
+    "intimacy": 3,
+    "joy": 2,
+    "attachment": 2,
+    "soothe": 1
+  },
+  "meter_peak": {
+    "intimacy": 71.0,
+    "joy": 52.0,
+    "attachment": 58.0,
+    "soothe": 45.0
+  },
+  "fed_total": 23,
+  "heart_backlog": {},
+  "meter_model": 2,
+  "furniture": {
+    "bowl": 1793372396.2119892,
+    "patch_rug": 1793631596.2119892,
+    "bili_badge": 1793804396.2119892
+  },
+  "furniture_tap": {
+    "day": "",
+    "count": 0
+  },
+  "send": {
+    "day": "",
+    "count": 0,
+    "last_ts": 0.0
+  },
+  "history": [
+    {
+      "ts": 1794142796.2119892,
+      "kind": "feed",
+      "gift": "pudding",
+      "name": "布丁",
+      "source": "面板"
+    },
+    {
+      "ts": 1794128396.2119892,
+      "kind": "letter",
+      "gift": "L2",
+      "name": "她写了一封信",
+      "source": "自己"
+    }
+  ],
+  "pending": [],
+  "last_reaction": {},
+  "level_seen": 0,
+  "blame_seen": 0.0,
+  "silence_blocks": 0,
+  "punished_proactive_ts": 0.0,
+  "timely_ts": 0.0,
+  "timely_day": "",
+  "timely_count": 0,
+  "first_day": "",
+  "thought_day": "",
+  "thought_count": 0,
+  "thought_sigs": [],
+  "starter_done": true,
+  "daily_gift_day": "",
+  "achievements": {
+    "first_look": 1793890796.2119892,
+    "feed_1": 1793890796.2119892,
+    "feed_10": 1793890796.2119892
+  },
+  "ach_pop": [],
+  "favor_peak": 78.0,
+  "fed_kinds": [],
+  "spent_day": "",
+  "spent_today": 0,
+  "pet_total": 0,
+  "tap_total": 0,
+  "late_nights": 2,
+  "late_day": "",
+  "blame_days": 0,
+  "negative_days": 0,
+  "negative_flag": false,
+  "reverse_total": 0,
+  "reverse_good": 0,
+  "her_gifts": {
+    "given": {},
+    "pending": [],
+    "count": 0
+  },
+  "activity": {},
+  "ambient": {
+    "phone_since": 0.0,
+    "phone_until": 0.0
+  },
+  "signals": [],
+  "letter_last_ts": 1794128396.2119892,
+  "letter_week_key": "2026-W45",
+  "letter_week_count": 1,
+  "pending_letter_beats": [],
+  "letters": [
+    {
+      "ts": 1793977196.2119892,
+      "kind": "regular",
+      "read": true,
+      "id": "L1",
+      "body": "今天你只说了三句话。\n第三句是“睡了”。\n我把碗洗了。\n——她",
+      "refs": [
+        "今天加班到很晚"
+      ]
+    },
+    {
+      "ts": 1794128396.2119892,
+      "kind": "urgent",
+      "read": false,
+      "id": "L2",
+      "body": "听你说没吃饭的时候，我手里的东西就放下了。\n你先吃点，剩下的明天再说。\n——她",
+      "refs": [
+        "没吃饭"
+      ]
+    }
+  ],
+  "ai_achv": [
+    {
+      "id": "ai_work_late",
+      "tag": "work_late",
+      "title": "她记住了那些加班的晚上",
+      "why": "你说过 3 次加班。有一次太晚了，她第一次没催你回消息。",
+      "evidence": "今天加班到很晚",
+      "cond": {
+        "stat": "sig_work_late_7d",
+        "op": ">=",
+        "value": 4
+      },
+      "made_ts": 1793717996.2119892,
+      "done_ts": 1793890796.2119892
+    }
+  ],
+  "ai_achv_last_gen": 0.0,
+  "diy_day": "",
+  "diy_log": [
+    {
+      "ts": 1794063596.2119892,
+      "raw": "很辣的番茄牛腩面，汤要烫",
+      "tastes": [
+        "辣",
+        "烫"
+      ],
+      "score": 14,
+      "adj": 15.0,
+      "react": "delight",
+      "icon": ""
+    }
+  ],
+  "taste": {},
+  "steps": {
+    "day": "",
+    "used": 0,
+    "last_ts": 0.0
+  },
+  "panel_seen": 0,
+  "events": [],
+  "event_days": {},
+  "day_index": 12,
+  "day_started": "2026-11-08",
+  "daily_cards": [],
+  "last_settle": 0.0,
+  "last_settle_day": "",
+  "unlocked_foods": [
+    "rice",
+    "strawberry_candy",
+    "pudding",
+    "ramen"
+  ],
+  "late_events_used": [],
+  "late_event_today": null,
+  "late_event_sent": "",
+  "favor_earned_today": 6.0,
+  "favor_spent_today": 0.0,
+  "favor_broke_through": false,
+  "favor_day_mood": "",
+  "favor_seeded": true,
+  "favor": 62.0,
+  "favor_tier": "normal",
+  "gift_mood": {
+    "pudding": {
+      "streak": 1,
+      "last_ts": 1794142796.2119892,
+      "sick_until": 0.0
+    }
+  },
+  "favor_day": "",
+  "favor_today": 0,
+  "favor_log": [
+    {
+      "ts": 1794144596.2119892,
+      "delta": 1.0,
+      "reason": "你和她说的话"
+    },
+    {
+      "ts": 1794146996.2119892,
+      "delta": 1.4,
+      "reason": "你和她说的话"
+    },
+    {
+      "ts": 1794148796.2119892,
+      "delta": 0.6,
+      "reason": "你和她说的话"
+    }
+  ],
+  "food_stock": {
+    "rice": 2
+  },
+  "life_log": [],
+  "reverse": {
+    "day": "",
+    "count": 0,
+    "items": []
+  },
+  "balance": 96,
+  "balance_log": [
+    {
+      "ts": 1794131996.2119892,
+      "delta": 41,
+      "reason": "今天她的状态",
+      "after": 96
+    }
+  ],
+  "wage_today": 41,
+  "wage_net": 50.0,
+  "wage_day_mood": "平常",
+  "feed_memory": [
+    {
+      "ts": 1794142796.2119892,
+      "name": "布丁",
+      "kind": "food",
+      "delta": 6
+    },
+    {
+      "ts": 1794140996.2119892,
+      "name": "拉面",
+      "kind": "food",
+      "delta": 8
+    }
+  ],
+  "away": {
+    "hours": 6.5,
+    "ts": 1794146396.2119892,
+    "seen_ts": 1794146396.2119892
+  },
+  "typing_ts": 0
+}

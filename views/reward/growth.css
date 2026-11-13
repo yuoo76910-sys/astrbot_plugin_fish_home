@@ -1,0 +1,124 @@
+/* 「今天」抽屉：当日好感度额度、今日统计、深夜事件、今日卡与旧卡时间线
+   独立样式，前缀 gv-，配色沿用成就板那套星露谷变量 */
+:root {
+  --gv-wood-dark: #3a2415;
+  --gv-wood: #6b4a2b;
+  --gv-wood-light: #96693c;
+  --gv-tile: #d3a96f;
+  --gv-tile-lo: #5f4630;
+  --gv-cream: #f7e6c4;
+  --gv-gold: #ffd24a;
+  --gv-green: #6ec25a;
+  --gv-blue: #58a6cf;
+  --gv-red: #e0736b;
+  --gv-moon: #b7a4ff;
+}
+
+.gv-open { position: relative; }
+.gv-open .gv-dot {
+  position: absolute; top: -3px; right: -3px; min-width: 15px; height: 15px;
+  border-radius: 8px; background: var(--gv-moon); color: #241708;
+  font-size: 9px; line-height: 15px; font-weight: 800; padding: 0 3px;
+  border: 2px solid var(--gv-wood-dark); box-shadow: 1px 1px 0 rgba(0,0,0,.5);
+  display: none;
+}
+.gv-open.has-moon .gv-dot { display: block; }
+
+.gv-drawer {
+  position: fixed; inset: 0; z-index: 870; display: none;
+  background: rgba(10,6,2,.84); backdrop-filter: blur(3px);
+  padding: 18px; overflow: auto;
+}
+.gv-drawer.open { display: block; }
+.gv-frame {
+  max-width: 880px; margin: 0 auto; padding: 5px;
+  border: 4px solid var(--gv-wood-dark);
+  background: linear-gradient(180deg, var(--gv-wood-light), var(--gv-wood));
+  box-shadow: 12px 12px 0 rgba(0,0,0,.5);
+}
+.gv-in { border: 3px solid var(--gv-wood-dark); background: rgba(30,18,8,.97); padding: 16px 18px 20px; }
+
+.gv-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.gv-title { font-size: 21px; padding: 5px 16px; background: var(--gv-wood);
+  border: 3px solid var(--gv-wood-dark); box-shadow: 3px 3px 0 rgba(0,0,0,.5);
+  color: var(--gv-cream); text-shadow: 2px 2px 0 #000; letter-spacing: 2px; }
+.gv-day { font-size: 12px; color: #ffe6a8; }
+.gv-spacer { flex: 1; }
+.gv-btn { font: inherit; font-size: 12px; cursor: pointer; color: var(--gv-cream);
+  background: var(--gv-wood); border: 3px solid var(--gv-wood-dark);
+  padding: 6px 12px; box-shadow: 3px 3px 0 rgba(0,0,0,.5); }
+.gv-btn:hover { background: var(--gv-wood-light); }
+.gv-btn:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 rgba(0,0,0,.5); }
+.gv-btn.on { background: var(--gv-tile); color: #3a2410; border-color: var(--gv-gold); }
+
+/* 当日好感度 */
+.gv-meter { background: rgba(0,0,0,.4); border: 3px solid var(--gv-wood-dark); padding: 12px 14px; margin-bottom: 14px; }
+.gv-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.gv-label { font-size: 13px; color: var(--gv-gold); letter-spacing: 1px; }
+.gv-val { font-size: 22px; color: #fff; text-shadow: 2px 2px 0 #000; }
+.gv-sub { font-size: 11.5px; color: #d9bd93; }
+.gv-bar { position: relative; height: 18px; margin-top: 9px; background: #201207; border: 2px solid #000; overflow: hidden; }
+.gv-bar i { display: block; height: 100%; width: 0;
+  background: linear-gradient(180deg, #ff9ec4, #d7518a);
+  box-shadow: inset 0 -5px 0 rgba(0,0,0,.22), inset 0 4px 0 rgba(255,255,255,.3);
+  transition: width .8s cubic-bezier(.2,.8,.2,1); }
+.gv-bar.full i { background: linear-gradient(180deg, #ffe07a, #d79a1e); }
+.gv-bar b { position: absolute; inset: 0; display: grid; place-items: center; font-size: 11px; color: #fff; text-shadow: 1px 1px 0 #000; }
+.gv-flow { margin-top: 8px; font-size: 11.5px; color: #e8d3ac; }
+.gv-flow em { font-style: normal; font-weight: 700; }
+.gv-flow .up { color: var(--gv-green); }
+.gv-flow .down { color: var(--gv-red); }
+
+/* 今日统计方格 */
+.gv-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.gv-cell { text-align: center; padding: 9px 6px; background: var(--gv-tile-lo);
+  border: 3px solid #241708; box-shadow: inset 0 0 0 2px rgba(0,0,0,.3), 3px 3px 0 rgba(0,0,0,.4); }
+.gv-cell .ic { font-size: 19px; }
+.gv-cell .n { font-size: 17px; color: #fff; text-shadow: 2px 2px 0 #000; }
+.gv-cell .t { font-size: 10.5px; color: #e2c9a1; margin-top: 2px; }
+.gv-cell.hot { background: var(--gv-tile); border-color: var(--gv-gold); }
+.gv-cell.hot .n { color: #3a2410; text-shadow: 1px 1px 0 rgba(255,255,255,.4); }
+.gv-cell.hot .t { color: #5a3c1c; }
+.gv-cell.bad { border-color: var(--gv-red); }
+
+/* 深夜事件 */
+.gv-moon { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; padding: 12px 14px;
+  background: rgba(20,10,40,.6); border: 3px solid var(--gv-moon);
+  box-shadow: 3px 3px 0 rgba(0,0,0,.5); }
+.gv-moon .mi { font-size: 24px; }
+.gv-moon .mt { font-size: 11px; color: var(--gv-moon); letter-spacing: 2px; margin-bottom: 4px; }
+.gv-moon .ml { font-size: 13px; line-height: 1.7; color: #f0e6ff; }
+
+/* 心愿 */
+.gv-wish { display: flex; align-items: center; gap: 10px; padding: 10px 13px; margin-bottom: 14px;
+  background: rgba(0,0,0,.35); border: 3px solid var(--gv-wood-dark); font-size: 12.5px; color: #e8d3ac; }
+.gv-wish .ok { color: var(--gv-green); font-weight: 700; }
+.gv-wish .no { color: var(--gv-red); }
+
+/* 今日卡 */
+.gv-card { padding: 4px; border: 3px solid var(--gv-wood-dark);
+  background: linear-gradient(180deg, var(--gv-wood-light), var(--gv-wood)); margin-bottom: 12px; }
+.gv-card .cb { border: 2px solid var(--gv-wood-dark); background: rgba(247,230,196,.96); color: #2b1c10; padding: 13px 15px; }
+.gv-card .ch { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #6b4a2b; }
+.gv-card .ch .d { font-size: 11px; color: #8a6a3c; margin-left: 8px; font-weight: 400; }
+.gv-card ul { margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.85; }
+.gv-card .ck { margin-top: 10px; padding-top: 9px; border-top: 2px dashed #c9a06a; font-size: 12px; color: #6b4a2b; }
+.gv-card.pending { background: var(--gv-tile-lo); border-color: #241708; }
+.gv-card.pending .cb { background: rgba(0,0,0,.25); color: #d9bd93; border-color: var(--gv-wood-dark); }
+
+/* 旧卡时间线 */
+.gv-list { display: grid; gap: 8px; }
+.gv-item { display: flex; align-items: center; gap: 10px; padding: 8px 11px; cursor: pointer;
+  background: var(--gv-tile-lo); border: 2px solid #241708; box-shadow: 2px 2px 0 rgba(0,0,0,.4); font-size: 12px; }
+.gv-item:hover { background: var(--gv-wood); }
+.gv-item .dn { font-size: 11px; color: var(--gv-gold); min-width: 52px; }
+.gv-item .hl { color: #f0dcbb; flex: 1; }
+.gv-item .dt { font-size: 10.5px; color: #b89a6e; }
+.gv-empty { padding: 18px; text-align: center; font-size: 12px; color: #cbb08a; }
+.gv-note { margin-top: 12px; font-size: 11px; color: #b89a6e; }
+
+@media (max-width: 660px) {
+  .gv-stats { grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); }
+  .gv-title { font-size: 17px; }
+  .gv-val { font-size: 19px; }
+}

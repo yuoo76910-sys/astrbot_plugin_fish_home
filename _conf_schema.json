@@ -1,0 +1,347 @@
+{
+    "enabled": {
+        "type": "bool",
+        "description": "总开关",
+        "default": true,
+        "hint": "整个插件从这里关"
+    },
+    "test_mode": {
+        "type": "bool",
+        "description": "测试模式",
+        "default": false,
+        "hint": "吃的礼物不限量，录演示用"
+    },
+    "owner_session": {
+        "type": "string",
+        "description": "主人会话",
+        "default": "FriendMessage:",
+        "hint": "格式：消息类型:QQ号，例如 FriendMessage:123456789。填了之后好感、离线补看、信件、挂机工资都只认这个人；不填就只认管理员。"
+    },
+    "panel": {
+        "type": "object",
+        "description": "称呼与线索",
+        "items": {
+            "character_name": {
+                "type": "string",
+                "description": "她的名字",
+                "default": "大肥鱼",
+                "hint": "面板和台词里称呼她的名字，填什么都可以。"
+            },
+            "show_hidden_hints": {
+                "type": "bool",
+                "description": "显示隐藏线索",
+                "default": true,
+                "hint": "关掉后隐藏礼物只显示「？？？」，更吊胃口。"
+            }
+        },
+        "hint": "面板和台词里怎么称呼她，以及要不要提示隐藏礼物"
+    },
+    "debug": {
+        "type": "bool",
+        "description": "调试",
+        "default": false,
+        "hint": "只在排查问题时打开"
+    },
+    "weather": {
+        "type": "object",
+        "description": "窗外天气",
+        "items": {
+            "enabled": {
+                "type": "bool",
+                "default": true,
+                "description": "跟随实况",
+                "hint": "关掉就固定用 assets/bg/now_开灯.webp 那张。开着每 10 分钟拉一次 open-meteo，免费不要 key。"
+            },
+            "city": {
+                "type": "string",
+                "default": "杭州",
+                "description": "城市",
+                "hint": "填你所在的城市（现在是清远），她窗外那张图按这个城市的实况画。"
+            },
+            "auto_season": {
+                "type": "bool",
+                "default": true,
+                "description": "季节跟月份",
+                "hint": "春天的树和冬天的树不一样；关掉就永远按冬天画。"
+            }
+        },
+        "hint": "窗外跟着你当地的天气"
+    },
+    "offline": {
+        "type": "object",
+        "description": "离线补看",
+        "hint": "你不在线时说的话，她事后翻",
+        "items": {
+            "enabled": {
+                "type": "bool",
+                "default": true,
+                "description": "启用",
+                "hint": "你不在线时发的消息，她上线后翻出来看。只有 NapCat/aiocqhttp 平台有效。"
+            },
+            "max_msgs": {
+                "type": "int",
+                "default": 12,
+                "description": "最多翻几条"
+            }
+        }
+    },
+    "notify": {
+        "type": "object",
+        "description": "聊天里的提示",
+        "items": {
+            "inject_hint": {
+                "type": "bool",
+                "description": "启用",
+                "default": true,
+                "hint": "只在主人下一次聊天时注入一次，不刷屏。　新礼物/今日心愿让她在聊天里自然提一句"
+            }
+        },
+        "hint": "新礼物/心愿顺口提一句"
+    },
+    "post_feed": {
+        "type": "object",
+        "description": "喂完主动说话",
+        "items": {
+            "enabled": {
+                "type": "bool",
+                "description": "启用",
+                "default": true,
+                "hint": "打开后，每次喂食成功，过几秒她会主动发一条消息（内容是刚吃的东西 + 一句话）。连着喂只会发最后一句。"
+            },
+            "delay_seconds": {
+                "type": "int",
+                "description": "延迟（秒）",
+                "default": 3,
+                "hint": "喂完之后停顿多久再说，0 表示立刻。"
+            },
+            "chance": {
+                "type": "float",
+                "description": "触发概率",
+                "default": 1.0,
+                "hint": "0-1，1 表示每次都发。想偶尔才说就调低。"
+            },
+            "min_gap_seconds": {
+                "type": "int",
+                "description": "最短间隔（秒）",
+                "default": 0,
+                "hint": "两条主动消息之间至少隔多久，0 表示不限。"
+            },
+            "use_llm": {
+                "type": "bool",
+                "description": "让她自己想",
+                "default": true,
+                "hint": "打开后这句由模型用她自己的语气现场生成（会带上性格、心情、刚吃的东西）；关掉则用内置台词模板。"
+            }
+        },
+        "hint": "喂完/她主动说话时的那一句，性格直接跟着 AstrBot 的人设走，这里不用填。"
+    },
+    "signals": {
+        "type": "object",
+        "description": "线索抽取",
+        "items": {
+            "enabled": {
+                "type": "bool",
+                "description": "启用",
+                "default": true,
+                "hint": "关掉后不再记新线索，延迟回礼和手写信退回纯里程碑模式。词表在 main.py SIGNAL_TAGS，可自己加。　从你说的话里记线索（加班/不舒服/吵架…）"
+            }
+        },
+        "hint": "从你说的话里记下事"
+    },
+    "hunger": {
+        "type": "object",
+        "description": "她会不会饿",
+        "hint": "一天三顿，时间每天随机偏移，到点她会主动发消息说饿了；喂了白米饭就不再催。",
+        "items": {
+            "enabled": {
+                "type": "bool",
+                "default": true,
+                "description": "启用"
+            },
+            "slots": {
+                "type": "string",
+                "default": "08:00,12:30,19:00",
+                "description": "三个基准时刻",
+                "hint": "用英文逗号分隔，最多三个。实际会在前后若干分钟内随机。"
+            },
+            "jitter_minutes": {
+                "type": "int",
+                "default": 30,
+                "description": "前后偏移（分钟）"
+            }
+        }
+    },
+    "activity": {
+        "type": "object",
+        "description": "她的作息",
+        "items": {
+            "enabled": {
+                "type": "bool",
+                "description": "作息开关",
+                "default": true,
+                "hint": "关掉后面板回到纯前端骰子待机；聊天里\"你在干嘛\"改由前端上报兜底。　总开关：她有自己的作息（拿手机回你、按作息看电视）"
+            },
+            "phone_hold_seconds": {
+                "type": "int",
+                "description": "拿手机多久（秒）",
+                "default": 60,
+                "hint": "每来一条新消息重新计时；连续持有超过下面的上限会强制放下。"
+            },
+            "phone_max_minutes": {
+                "type": "int",
+                "description": "最多拿多久（分钟）",
+                "default": 30
+            },
+            "tv_follow_bili": {
+                "type": "bool",
+                "description": "跟 B 站记录",
+                "default": true,
+                "hint": "读 B 站插件近 14 天的 watch_log 小时分布；关掉或没数据时用下面手填的时段。"
+            },
+            "tv_start": {
+                "type": "int",
+                "description": "看电视开始（点）",
+                "default": 20
+            },
+            "tv_end": {
+                "type": "int",
+                "description": "看电视结束（点）",
+                "default": 23
+            },
+            "idle_enabled": {
+                "type": "bool",
+                "description": "闲置自选动作",
+                "default": true,
+                "hint": "电视时段外她也可能主动看电视——频率由下面权重决定。关掉后看电视只在作息时段发生。　闲置场景骰子（她可能自己选择玩手机/看电视/发呆）"
+            },
+            "idle_phone_weight": {
+                "type": "int",
+                "description": "玩手机权重",
+                "default": 18,
+                "hint": "相对概率，不是次数。0 就是不玩。"
+            },
+            "idle_tv_weight": {
+                "type": "int",
+                "description": "看电视权重",
+                "default": 12
+            },
+            "idle_sit_weight": {
+                "type": "int",
+                "description": "发呆权重",
+                "default": 6
+            },
+            "idle_none_weight": {
+                "type": "int",
+                "description": "站着权重",
+                "default": 30
+            },
+            "idle_night_boost": {
+                "type": "float",
+                "description": "深夜权重倍率",
+                "default": 2.2,
+                "hint": "深夜（22-6点）手机/电视权重倍率"
+            },
+            "idle_scene_minutes": {
+                "type": "int",
+                "description": "每段持续（分钟）",
+                "default": 4
+            },
+            "idle_gap_seconds": {
+                "type": "int",
+                "description": "间隔（秒）",
+                "default": 45
+            }
+        },
+        "hint": "玩手机、看电视、发呆"
+    },
+    "diy_feed": {
+        "type": "object",
+        "description": "DIY 点单",
+        "items": {
+            "enabled": {
+                "type": "bool",
+                "description": "启用",
+                "default": true,
+                "hint": "一句话描述食物+分数自己填（-10~+20），一天一次，不花好感度。分数你说了算，态度听她的。"
+            }
+        },
+        "hint": "你亲手给她做吃的"
+    },
+    "her_gifts": {
+        "description": "她送你的回礼：递出去没领的处理方式",
+        "type": "object",
+        "items": {
+            "offer_expire_hours": {
+                "description": "她递给你、你没领的东西，超过多少小时她收回去（默认 72 = 3 天）",
+                "type": "int",
+                "default": 72
+            },
+            "waiting_expire_days": {
+                "description": "她藏在身后一直没找到机会递的东西，多少天后作废",
+                "type": "int",
+                "default": 14
+            },
+            "back_to_queue": {
+                "description": "你没领的东西，她收回去之后会不会再找机会递给你",
+                "type": "bool",
+                "default": true
+            }
+        }
+    },
+    "furn_gen": {
+        "type": "object",
+        "description": "家具工坊",
+        "hint": "一句话描述 → 她的模型出施工图 → 代码渲染成像素家具 → 房间里按住拖动摆放（成就家具解锁后也能挪）。免费，默认不限次。",
+        "items": {
+            "enabled": {
+                "type": "bool",
+                "default": true,
+                "description": "启用",
+                "hint": "右上角「具」按钮和工坊的总开关。"
+            },
+            "daily_limit": {
+                "type": "int",
+                "default": 0,
+                "description": "每天生成次数",
+                "hint": "0 或负数 = 不限次（默认）。只数生成（预览）那一步，保存不另算；测试模式下也不限。"
+            },
+            "max_items": {
+                "type": "int",
+                "default": 0,
+                "description": "家具库存上限",
+                "hint": "自定义家具最多存多少件，0 或负数 = 不限量（默认）。"
+            },
+            "max_placed": {
+                "type": "int",
+                "default": 20,
+                "description": "同屏摆放上限",
+                "hint": "自定义家具 + 挪过位的成就家具加起来最多摆多少件。"
+            },
+            "image": {
+                "type": "object",
+                "description": "精绘模式（可选生图后端）",
+                "hint": "填了 API Key 工坊就改用生图模型画家具（本地抠图+量化成像素规格，摆放系统不变）；留空 = 默认走 LLM 施工图。",
+                "items": {
+                    "api_key": {
+                        "type": "string",
+                        "default": "",
+                        "description": "API Key",
+                        "hint": "留空 = 关闭精绘。硅基流动的控制台可以建（sk- 开头），按张计费、几秒到几十秒一张。Key 只存在本机配置里，只发给下面的接口地址。"
+                    },
+                    "base_url": {
+                        "type": "string",
+                        "default": "https://api.siliconflow.cn",
+                        "description": "接口地址",
+                        "hint": "默认硅基流动。豆包（火山方舟）填 https://ark.cn-beijing.volces.com/api/v3（按量 key）或 https://ark.cn-beijing.volces.com/api/plan/v3（AgentPlan 套餐 key）；路径带 v3 的地址会自动按方舟参数格式请求。其他后端要兼容 OpenAI 风格 /v1/images/generations。"
+                    },
+                    "model": {
+                        "type": "string",
+                        "default": "Qwen/Qwen-Image",
+                        "description": "生图模型",
+                        "hint": "硅基流动：Qwen/Qwen-Image（中文好）或 black-forest-labs/FLUX.1-schnell（快）。豆包方舟：doubao-seedream-5-0-flash / doubao-seedream-5.0-pro / doubao-seedream-4-0-250828 这类模型 ID。"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,483 @@
+{
+  "version": 1,
+  "title": "成就",
+  "categories": [
+    {
+      "key": "first",
+      "title": "初见",
+      "items": [
+        {
+          "id": "first_look",
+          "name": "终于能看见你在干嘛了",
+          "desc": "第一次打开小窝。在这之前，她只能听见你打字。",
+          "icon": "achv_first_look.png",
+          "cond": [
+            {
+              "stat": "panel_seen",
+              "op": ">=",
+              "value": 1
+            }
+          ],
+          "icon_kind": "furniture"
+        }
+      ]
+    },
+    {
+      "key": "feed",
+      "title": "喂食",
+      "items": [
+        {
+          "id": "feed_1",
+          "name": "第一口",
+          "desc": "喂她吃第一样东西。",
+          "icon": "achv_feed_1.png",
+          "cond": [
+            {
+              "stat": "fed_total",
+              "op": ">=",
+              "value": 1
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "feed_10",
+          "name": "投喂十次",
+          "desc": "累计喂满 10 次。",
+          "icon": "achv_feed_10.png",
+          "cond": [
+            {
+              "stat": "fed_total",
+              "op": ">=",
+              "value": 10
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "feed_30",
+          "name": "喂了三十次",
+          "desc": "累计喂满 30 次，她已经记住你的口味。",
+          "icon": "achv_feed_30.png",
+          "cond": [
+            {
+              "stat": "fed_total",
+              "op": ">=",
+              "value": 30
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "feed_all7",
+          "name": "都尝过了",
+          "desc": "八种食物每种都喂过一次。",
+          "icon": "achv_feed_all7.png",
+          "cond": [
+            {
+              "stat": "foods_distinct",
+              "op": ">=",
+              "value": 8
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "feed_streak7",
+          "name": "每天那根小鱼干",
+          "desc": "连续 7 天都来找她。",
+          "icon": "achv_feed_streak7.png",
+          "cond": [
+            {
+              "stat": "streak",
+              "op": ">=",
+              "value": 7
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "feed_spend40",
+          "name": "舍得花钱",
+          "desc": "一天为她花掉 40 点好感度。",
+          "icon": "achv_feed_spend40.png",
+          "cond": [
+            {
+              "stat": "spent_today",
+              "op": ">=",
+              "value": 40
+            }
+          ],
+          "icon_kind": "furniture"
+        }
+      ]
+    },
+    {
+      "key": "chat",
+      "title": "陪伴",
+      "items": [
+        {
+          "id": "chat_10",
+          "name": "聊满十句",
+          "desc": "累计聊天 10 句。",
+          "icon": "achv_chat_10.png",
+          "cond": [
+            {
+              "stat": "chat_total",
+              "op": ">=",
+              "value": 10
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "chat_100",
+          "name": "一百句",
+          "desc": "累计聊天 100 句。",
+          "icon": "achv_chat_100.png",
+          "cond": [
+            {
+              "stat": "chat_total",
+              "op": ">=",
+              "value": 100
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "chat_500",
+          "name": "话痨",
+          "desc": "累计聊天 500 句。",
+          "icon": "achv_chat_500.png",
+          "cond": [
+            {
+              "stat": "chat_total",
+              "op": ">=",
+              "value": 500
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "chat_streak7",
+          "name": "一星期没缺席",
+          "desc": "连续 7 天都来找她。",
+          "icon": "achv_chat_streak7.png",
+          "cond": [
+            {
+              "stat": "streak",
+              "op": ">=",
+              "value": 7
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "chat_streak30",
+          "name": "一个月没缺席",
+          "desc": "连续 30 天都来找她。",
+          "icon": "achv_chat_streak30.png",
+          "cond": [
+            {
+              "stat": "streak",
+              "op": ">=",
+              "value": 30
+            }
+          ],
+          "icon_kind": "furniture"
+        }
+      ]
+    },
+    {
+      "key": "meters",
+      "title": "亲密与积累",
+      "items": [
+        {
+          "id": "m_round1",
+          "name": "攒满一轮",
+          "desc": "任意一条进度攒满一次。",
+          "icon": "achv_m_round1.png",
+          "cond": [
+            {
+              "stat": "fed_total",
+              "op": ">=",
+              "value": 1
+            },
+            {
+              "any": [
+                {
+                  "stat": "level",
+                  "op": ">=",
+                  "value": 1
+                },
+                {
+                  "stat": "level_joy",
+                  "op": ">=",
+                  "value": 1
+                },
+                {
+                  "stat": "level_attachment",
+                  "op": ">=",
+                  "value": 1
+                },
+                {
+                  "stat": "level_soothe",
+                  "op": ">=",
+                  "value": 1
+                }
+              ]
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "m_int3",
+          "name": "三层亲密",
+          "desc": "亲密度槽攒到 3 层。",
+          "icon": "achv_m_int3.png",
+          "cond": [
+            {
+              "stat": "level",
+              "op": ">=",
+              "value": 3
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "m_int10",
+          "name": "十层亲密",
+          "desc": "亲密度槽攒到 10 层。",
+          "icon": "achv_m_int10.png",
+          "cond": [
+            {
+              "stat": "level",
+              "op": ">=",
+              "value": 10
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "m_joy5",
+          "name": "她很开心",
+          "desc": "喜悦槽攒到 5 层。",
+          "icon": "achv_m_joy5.png",
+          "cond": [
+            {
+              "stat": "level_joy",
+              "op": ">=",
+              "value": 5
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "m_soothe3",
+          "name": "被她信任",
+          "desc": "安抚槽攒到 3 层。",
+          "icon": "achv_m_soothe3.png",
+          "cond": [
+            {
+              "stat": "level_soothe",
+              "op": ">=",
+              "value": 3
+            }
+          ],
+          "icon_kind": "furniture"
+        }
+      ]
+    },
+    {
+      "key": "room",
+      "title": "小窝",
+      "items": [
+        {
+          "id": "r_bowl",
+          "name": "食盆",
+          "desc": "第一次喂她，她就有了这个盆。",
+          "icon": "achv_r_bowl.png",
+          "icon_kind": "furniture",
+          "cond": [
+            {
+              "stat": "furn_bowl",
+              "op": ">=",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "r_rug",
+          "name": "拼接地毯",
+          "desc": "四条槽各攒满一次，布是她自己缝的。",
+          "icon": "achv_r_rug.png",
+          "icon_kind": "furniture",
+          "cond": [
+            {
+              "stat": "furn_patch_rug",
+              "op": ">=",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "r_bili",
+          "name": "B站观众牌",
+          "desc": "让她刷到过一条视频。",
+          "icon": "achv_r_bili.png",
+          "icon_kind": "furniture",
+          "cond": [
+            {
+              "stat": "furn_bili_badge",
+              "op": ">=",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "favor",
+      "title": "好感与回赠",
+      "items": [
+        {
+          "id": "f_100",
+          "name": "好感度满格",
+          "desc": "好感度冲到过 100。",
+          "icon": "achv_f_100.png",
+          "cond": [
+            {
+              "stat": "favor_peak",
+              "op": ">=",
+              "value": 100
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "f_60",
+          "name": "她挺喜欢你",
+          "desc": "好感度达到 60。",
+          "icon": "achv_f_60.png",
+          "cond": [
+            {
+              "stat": "favor",
+              "op": ">=",
+              "value": 60
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "f_rev1",
+          "name": "她送你东西",
+          "desc": "她主动回赠过一次礼物。",
+          "icon": "achv_f_rev1.png",
+          "cond": [
+            {
+              "stat": "reverse_total",
+              "op": ">=",
+              "value": 1
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "f_revgood",
+          "name": "送的是好东西",
+          "desc": "她心情不错的时候送了你一份。",
+          "icon": "achv_f_revgood.png",
+          "cond": [
+            {
+              "stat": "reverse_good",
+              "op": ">=",
+              "value": 1
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "f_her10",
+          "name": "她送我的都齐了",
+          "desc": "「她送我的」收藏集齐 10 件（隐藏款也算）。",
+          "icon": "achv_f_her10.png",
+          "cond": [
+            {
+              "stat": "her_gift_count",
+              "op": ">=",
+              "value": 10
+            }
+          ],
+          "icon_kind": "furniture",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "key": "secret",
+      "title": "藏起来的东西",
+      "items": [
+        {
+          "id": "s_pet100",
+          "name": "摸了一百次头",
+          "desc": "点她摸头累计 100 次。",
+          "icon": "achv_s_pet100.png",
+          "hidden": true,
+          "cond": [
+            {
+              "stat": "pet_total",
+              "op": ">=",
+              "value": 100
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "s_night3",
+          "name": "深夜还聊",
+          "desc": "晚上十点后陪她说过 3 个不同的夜晚。",
+          "icon": "achv_s_night3.png",
+          "hidden": true,
+          "cond": [
+            {
+              "stat": "late_nights",
+              "op": ">=",
+              "value": 3
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "s_blame3",
+          "name": "裂掉的心",
+          "desc": "连续被她记下的敷衍/假安慰攒到 3 次。",
+          "icon": "achv_s_blame3.png",
+          "hidden": true,
+          "cond": [
+            {
+              "stat": "blame_days",
+              "op": ">=",
+              "value": 3
+            }
+          ],
+          "icon_kind": "furniture"
+        },
+        {
+          "id": "s_all",
+          "name": "小窝的全部",
+          "desc": "把上面所有成就都点亮。",
+          "icon": "achv_s_all.png",
+          "hidden": true,
+          "cond": [
+            {
+              "stat": "ach_done_others",
+              "op": ">=",
+              "value": 33
+            }
+          ],
+          "icon_kind": "furniture"
+        }
+      ]
+    }
+  ]
+}

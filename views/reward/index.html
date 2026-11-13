@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>鱼的窝</title>
+<link rel="stylesheet" href="./style.css?v=61" />
+<link rel="stylesheet" href="./achv.css?v=61" />
+<link rel="stylesheet" href="./growth.css?v=61" />
+<link rel="stylesheet" href="./hergift.css?v=61" />
+<link rel="stylesheet" href="./life.css?v=61" />
+<link rel="stylesheet" href="./mail.css?v=61" />
+<link rel="stylesheet" href="./furngen.css?v=67" />
+</head>
+<body>
+<div class="tank" id="tank">
+  <div class="tank-bg" aria-hidden="true"></div>
+  <div class="tank-window tank-window-l" aria-hidden="true"></div>
+  <div class="tank-window tank-window-r" aria-hidden="true"></div>
+  <div class="tank-glow" aria-hidden="true"></div>
+  <div class="bubble-layer" id="bubbles" aria-hidden="true"></div>
+
+  <div class="furniture-layer" id="furnitureLayer" aria-hidden="true"></div>
+
+  <div class="fish" id="fish"><div class="fish-gif" aria-hidden="true"></div></div>
+
+  <section class="panel" id="panel">
+    <div class="panel-title">
+      <b id="charName">她</b>
+      <span class="creative-badge" id="creativeBadge" hidden>创造</span>
+      <span class="panel-mood" id="moodBadge">平常</span>
+    </div>
+    <div class="aff-box" id="affBox">
+      <div class="aff-head">
+        <span class="aff-name" id="affName">好感度</span>
+      </div>
+      <div class="aff-track">
+        <i class="aff-fill" id="affFill"></i>
+        <b class="aff-num" id="affNum">0</b>
+      </div>
+    </div>
+    <div class="panel-foot">
+      <span>余额 <b id="coinValue">0</b><i class="coin-add" id="coinAdd"></i></span>
+      <span>今日 <b id="todayChat">0</b> 句</span>
+    </div>
+  </section>
+
+  <div class="scene-actions">
+    <button class="round-btn mail-btn" id="btnMail" type="button" title="信箱">信</button>
+    <button class="round-btn furn-btn" id="btnFurn" type="button" title="家具工坊">具</button>
+    <button class="round-btn" id="btnDetail" type="button">☰</button>
+    <button class="round-btn" id="btnRefresh" type="button">↻</button>
+  </div>
+
+  <div class="ability-bar" id="abilityBar"></div>
+
+  <div class="talk-bubble" id="talkBubble" hidden>
+    <p id="talkText"></p>
+  </div>
+
+  <div class="thought-bubble" id="thoughtBubble" hidden></div>
+
+  <div class="float-layer" id="floatLayer" aria-hidden="true"></div>
+
+  <div class="error-card" id="errorCard" hidden>
+    <h2>读不到她的房间</h2>
+    <p id="errorText"></p>
+    <button class="ghost-btn" id="btnRetry" type="button">重试</button>
+  </div>
+</div>
+
+<div class="hint-bubble" id="hintBubble" hidden>选一个礼物 → 点她</div>
+<!-- 近景镜头放在房间外面：放在 .tank 里会被底部物品栏盖住 -->
+<div class="camera-stack" id="cameraStack">
+  <div class="reaction-card" id="unlockCard" hidden>
+    <div class="camera" id="unlockCam">
+      <div class="camera-world" id="unlockWorld"></div>
+      <div class="camera-flash"></div>
+      <span class="camera-tag" id="unlockTag">新家具</span>
+    </div>
+    <p class="reaction-line" id="unlockLine"></p>
+  </div>
+  <div class="reaction-card" id="reactionCard" hidden>
+    <div class="camera" id="camera">
+      <div class="camera-world" id="cameraWorld"></div>
+      <div class="camera-item" id="cameraItem"></div>
+      <div class="camera-flash"></div>
+      <span class="camera-tag" id="feedTag">近景</span>
+    </div>
+    <p class="reaction-line" id="reactionLine"></p>
+    <div class="reaction-delta" id="reactionDelta"></div>
+  </div>
+</div>
+<div class="hotbar-wrap" id="hotbarWrap">
+    <div class="hotbar" id="hotbar"></div>
+</div>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-panel">
+    <header class="sheet-head">
+      <div>
+        <h2 id="sheetTitle">她的房间</h2>
+        <p class="sub" id="subtitle">正在读取…</p>
+      </div>
+      <div class="sheet-head-actions">
+        <button class="ghost-btn" id="btnRead" type="button">全部已读</button>
+        <button class="ghost-btn" id="btnCloseSheet" type="button">收起</button>
+      </div>
+    </header>
+    <div class="sheet-body">
+      <article class="card meters-card">
+        <div class="card-head">
+          <h2>积累</h2>
+          <span class="hint" id="feedNote">攒满一格 → 鱼的心 +10，等级 +1（没有上限）</span>
+        </div>
+        <div class="meter-list" id="meterList"></div>
+      </article>
+
+      <article class="card stats-card">
+        <div class="card-head"><h2>此刻</h2><span class="hint" id="sourceLabel">本地积累</span></div>
+        <div class="stat-grid">
+          <div class="stat"><span>层数</span><b id="statLevel">—</b></div>
+          <div class="stat"><span>当前亲密</span><b id="statIntimacy">—</b></div>
+          <div class="stat"><span>本格最高</span><b id="statPeak">—</b></div>
+          <div class="stat"><span>攒满次数</span><b id="statFed">—</b></div>
+          <div class="stat"><span>今日聊天</span><b id="statToday">—</b></div>
+          <div class="stat"><span>聊天总量</span><b id="statTotal">—</b></div>
+          <div class="stat"><span>连续天数</span><b id="statStreak">—</b></div>
+        </div>
+        <div class="week" id="weekBars" aria-label="最近七天聊天"></div>
+      </article>
+
+      <section class="card gifts-card">
+        <div class="card-head">
+          <h2>礼物仓库</h2>
+          <div class="filters" id="filters">
+            <button type="button" data-filter="all" class="active">全部</button>
+            <button type="button" data-filter="sendable">可送</button>
+            <button type="button" data-filter="locked">未解锁</button>
+            <button type="button" data-filter="sent">送过</button>
+          </div>
+        </div>
+        <div class="gift-grid" id="giftGrid"></div>
+      </section>
+
+      <section class="card furniture-card">
+        <div class="card-head">
+          <h2>小窝</h2>
+          <span class="hint" id="furnNote">喂够东西就会多一件家具，点房间里的家具能跟它互动</span>
+        </div>
+        <div class="furn-grid" id="furnGrid"></div>
+      </section>
+
+      <div class="grid-2">
+        <article class="card history-card">
+          <div class="card-head"><h2>最近记录</h2><span class="hint">送礼与解锁</span></div>
+          <ul class="history" id="history"></ul>
+        </article>
+        <article class="card clues-card">
+          <div class="card-head"><h2>线索</h2><span class="hint">她藏起来的东西</span></div>
+          <ul class="clues" id="clues"></ul>
+          <p class="empty" id="cluesEmpty">现在还没有线索。多陪陪她，或者把礼物送出去。</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<!-- 家具工坊：只有两件事——① 一句话生成像素家具 ② 摆放模式 -->
+<div class="furn" id="furn" hidden>
+  <div class="furn-box" id="furnBox">
+    <header class="furn-head">
+      <h2>家具工坊</h2>
+      <span class="furn-sub" id="furnSub">—</span>
+      <button class="furn-close" id="furnClose" type="button">收起</button>
+    </header>
+    <div class="furn-body">
+      <section class="furn-gen">
+        <div class="furn-sec-head"><h3>画一个</h3><span class="hint">一句话 → 她的模型出图 → 代码画成像素</span></div>
+        <div class="furn-gen-row">
+          <input id="furnPrompt" type="text" maxlength="60" placeholder="想画什么都行：台灯、橘猫、一张笑脸…" />
+          <button id="furnGo" type="button" class="furn-go">生成</button>
+        </div>
+        <p class="furn-busy" id="furnBusy" hidden>正在画……</p>
+        <div class="furn-preview" id="furnPreview" hidden>
+          <div class="furn-preview-img"><img id="furnPreviewImg" alt="预览" /></div>
+          <div class="furn-preview-meta">
+            <b id="furnPreviewName"></b>
+            <span class="furn-preview-size" id="furnPreviewSize"></span>
+            <div class="furn-preview-ops">
+              <button id="furnKeep" type="button" class="furn-go">保存</button>
+              <button id="furnReroll" type="button">换一张</button>
+              <button id="furnDrop" type="button">丢弃</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="furn-lib">
+        <div class="furn-sec-head"><h3>我的家具</h3><span class="hint" id="furnCount"></span></div>
+        <div class="furn-my-grid" id="furnMyGrid"></div>
+        <footer class="furn-foot">
+          <span class="hint">摆放：按住家具拖进房间，拖回底部托盘收回</span>
+          <button id="furnPlace" type="button" class="furn-place">摆放模式</button>
+        </footer>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- 摆放模式：物品栏临时换成家具托盘 -->
+<div class="furn-tray" id="furnTray" hidden></div>
+<div class="furn-mode-bar" id="furnModeBar" hidden>
+  <span id="furnModeHint">摆放中 · 按住拖进房间 · 松手的在最上层 · 右键压最底 · 滚轮调大小 · 拖回托盘收回</span>
+  <b class="furn-scale" id="furnScale" hidden>×1</b>
+  <button id="furnDone" type="button">完成</button>
+</div>
+
+<div class="mail" id="mail" hidden>
+  <div class="mail-box" id="mailBox">
+    <header class="mail-head">
+      <h2>信箱</h2>
+      <span class="mail-sub" id="mailSub">—</span>
+      <button class="mail-close" id="mailClose" type="button">收起</button>
+    </header>
+    <div class="mail-body">
+      <div class="mail-list" id="mailList"></div>
+      <div class="mail-paper">
+        <div id="paperInner"></div>
+      </div>
+    </div>
+    <footer class="mail-foot">
+      <span class="hint">加急信要花余额</span>
+      <button class="mail-write" id="mailWrite" type="button">加急写一封（<b id="mailCost">20</b> 块）</button>
+    </footer>
+  </div>
+</div>
+
+<script>
+  // 开灯成就：给 .tank 加上 lit 类即可（调试用 ?lit=1）
+  try {
+    if (new URLSearchParams(location.search).get("lit") === "1") {
+      document.getElementById("tank").classList.add("lit");
+    }
+  } catch (e) {}
+</script>
+<script src="./app.js?v=63"></script>
+<script src="./achv.js?v=61"></script>
+<script src="./growth.js?v=61"></script>
+<script src="./hergift.js?v=61"></script>
+<script src="./life.js?v=61"></script>
+<script src="./mail.js?v=61"></script>
+<script src="./furngen.js?v=68"></script>
+</body>
+</html>

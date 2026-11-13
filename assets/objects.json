@@ -1,0 +1,106 @@
+{
+  "objects": [
+    {
+      "id": "bowl",
+      "kind": "furniture",
+      "name": "食盆",
+      "emoji": "🍚",
+      "x": 66,
+      "y": 8,
+      "w": 8,
+      "unlock": [
+        {
+          "stat": "gifts_sent",
+          "op": ">=",
+          "value": 1,
+          "label": "喂她一次"
+        }
+      ],
+      "lines": [
+        "盆里还剩一点，她舔干净了。",
+        "她盯着这个盆看了很久。"
+      ],
+      "icon": "bowl.png",
+      "native": [
+        11,
+        8
+      ],
+      "px": 11
+    },
+    {
+      "id": "patch_rug",
+      "kind": "furniture",
+      "name": "拼接地毯",
+      "emoji": "🟫",
+      "x": 40,
+      "y": 10,
+      "w": 20,
+      "unlock": [
+        {
+          "all": [
+            {
+              "stat": "level",
+              "op": ">=",
+              "value": 1,
+              "label": "亲密度攒满一次"
+            },
+            {
+              "stat": "level_joy",
+              "op": ">=",
+              "value": 1,
+              "label": "喜悦攒满一次"
+            },
+            {
+              "stat": "level_attachment",
+              "op": ">=",
+              "value": 1,
+              "label": "依恋攒满一次"
+            },
+            {
+              "stat": "level_soothe",
+              "op": ">=",
+              "value": 1,
+              "label": "安抚攒满一次"
+            }
+          ]
+        }
+      ],
+      "lines": [
+        "四种颜色的布拼在一起，是她自己缝的。",
+        "踩上去有一块特别软。"
+      ],
+      "icon": "patch_rug.png",
+      "native": [
+        46,
+        26
+      ],
+      "px": 46
+    },
+    {
+      "id": "bili_badge",
+      "kind": "furniture",
+      "name": "B站观众牌",
+      "x": 76,
+      "y": 58,
+      "w": 6.2,
+      "unlock": [
+        {
+          "stat": "bili_watched",
+          "op": ">=",
+          "value": 1,
+          "label": "看她刷过一次 B 站"
+        }
+      ],
+      "lines": [
+        "她把这块牌子挂在墙上，说是在 B 站混过的证明。",
+        "牌子擦得很亮，边角有点磕碰——是搬过来的时候弄的。"
+      ],
+      "icon": "bili_badge.png",
+      "native": [
+        15,
+        13
+      ],
+      "px": 15
+    }
+  ]
+}

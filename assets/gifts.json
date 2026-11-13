@@ -1,0 +1,671 @@
+{
+  "version": 1,
+  "title": "鱼的窝",
+  "daily_wishes": [
+    {
+      "id": "praise",
+      "text": "想被你夸一句",
+      "hint": "夸夸她，说她哪里可爱、哪里厉害",
+      "check": "praise",
+      "gain": 18,
+      "line": "哼，今天这句话还算中听"
+    },
+    {
+      "id": "candy",
+      "text": "想吃一颗加倍佳",
+      "hint": "把棒棒糖送给她",
+      "check": "gift:candy",
+      "gain": 18,
+      "line": "糖…我收下了"
+    },
+    {
+      "id": "talk",
+      "text": "想听你讲讲今天",
+      "hint": "说一段长一点的话，二十个字以上",
+      "check": "long_message",
+      "gain": 18,
+      "line": "嗯，我在听，你继续说"
+    },
+    {
+      "id": "goodnight",
+      "text": "想听你说晚安",
+      "hint": "睡前跟她说一声晚安",
+      "check": "goodnight",
+      "gain": 18,
+      "line": "晚安…你先睡，我再待一会儿"
+    },
+    {
+      "id": "company",
+      "text": "想多陪你一会儿",
+      "hint": "今天多聊几句，聊满三十句",
+      "check": "chat_30",
+      "gain": 18,
+      "line": "今天说了好多话，嗓子都热了"
+    },
+    {
+      "id": "gift",
+      "text": "想收到一份礼物",
+      "hint": "送她任何一件礼物",
+      "check": "any_gift",
+      "gain": 18,
+      "line": "你送什么，我都不会扔的"
+    },
+    {
+      "id": "late",
+      "text": "想知道你还没睡",
+      "hint": "晚上十点以后跟她说句话",
+      "check": "late_night",
+      "gain": 18,
+      "line": "这么晚还没睡？…我也没睡"
+    }
+  ],
+  "mode_lines": {
+    "wronged": "……你还会送我东西啊",
+    "afraid": "我、我没生气…真的",
+    "shut": "……放那儿吧，我一会儿看"
+  },
+  "gifts": [
+    {
+      "id": "candy",
+      "name": "加倍佳棒棒糖",
+      "emoji": "🍬",
+      "icon": "candy.png",
+      "rarity": "common",
+      "desc": "她最爱的酸甜味，含在嘴里会安静一会儿",
+      "effect": {
+        "intimacy": 6,
+        "joy": 4,
+        "attachment": 1,
+        "stress": -1,
+        "wish": 2
+      },
+      "unlock": {
+        "kind": "daily",
+        "conditions": [
+          {
+            "stat": "chat_today",
+            "op": ">=",
+            "value": 10
+          }
+        ],
+        "hint": "她兜里那根糖快吃完了"
+      },
+      "source": "每天陪她聊满 10 句",
+      "lines": [
+        "哼，还知道我爱吃这个",
+        "糖我收下了，人也可以多留一会儿"
+      ],
+      "animation": {
+        "particle": "heart",
+        "color": "#ff9ec4",
+        "motion": "nibble"
+      },
+      "aliases": [
+        "糖果",
+        "糖",
+        "棒棒糖",
+        "加倍佳"
+      ],
+      "kind": "food"
+    },
+    {
+      "id": "milk",
+      "name": "草莓牛奶",
+      "emoji": "🥛",
+      "icon": "milk.png",
+      "rarity": "common",
+      "desc": "草莓味的，喝完会把瓶子留给你",
+      "effect": {
+        "intimacy": 6,
+        "joy": 4,
+        "attachment": 1,
+        "stress": -1,
+        "wish": 2
+      },
+      "unlock": {
+        "kind": "milestone",
+        "conditions": [
+          {
+            "stat": "chat_total",
+            "op": ">=",
+            "value": 30
+          }
+        ]
+      },
+      "source": "聊天累计 30 句",
+      "lines": [
+        "草莓味的……算你有心",
+        "喝完了，瓶子留给你洗"
+      ],
+      "animation": {
+        "particle": "bubble",
+        "color": "#a8e6ff",
+        "motion": "float"
+      },
+      "aliases": [
+        "牛奶",
+        "草莓牛奶"
+      ],
+      "kind": "drink"
+    },
+    {
+      "id": "fish_snack",
+      "name": "小鱼干",
+      "emoji": "🐟",
+      "icon": "fish_snack.png",
+      "rarity": "common",
+      "desc": "咸香的小鱼干，嘴上嫌弃，手很诚实",
+      "effect": {
+        "intimacy": 7,
+        "joy": 5,
+        "attachment": 2,
+        "stress": -1,
+        "wish": 2
+      },
+      "unlock": {
+        "kind": "milestone",
+        "conditions": [
+          {
+            "stat": "chat_total",
+            "op": ">=",
+            "value": 60
+          }
+        ]
+      },
+      "source": "聊天累计 60 句",
+      "lines": [
+        "小鱼干？你把我当猫哄呢",
+        "……还挺好吃的"
+      ],
+      "animation": {
+        "particle": "star",
+        "color": "#ffd166",
+        "motion": "nibble"
+      },
+      "aliases": [
+        "小鱼干",
+        "鱼干",
+        "小鱼"
+      ],
+      "kind": "food"
+    },
+    {
+      "id": "cupcake",
+      "name": "纸杯小蛋糕",
+      "emoji": "🧁",
+      "icon": "cupcake.png",
+      "rarity": "rare",
+      "desc": "奶油和糖霜，适合心情好的下午",
+      "effect": {
+        "intimacy": 8,
+        "joy": 6,
+        "attachment": 2,
+        "stress": -2,
+        "wish": 3
+      },
+      "unlock": {
+        "kind": "milestone",
+        "conditions": [
+          {
+            "stat": "chat_total",
+            "op": ">=",
+            "value": 100
+          }
+        ]
+      },
+      "source": "聊天累计 100 句",
+      "lines": [
+        "这个奶油看起来不错",
+        "先咬一口，剩下的给你留着"
+      ],
+      "animation": {
+        "particle": "confetti",
+        "color": "#ffb3c7",
+        "motion": "float"
+      },
+      "aliases": [
+        "小蛋糕",
+        "纸杯蛋糕",
+        "蛋糕"
+      ],
+      "kind": "food"
+    },
+    {
+      "id": "star_hairpin",
+      "name": "星星发夹",
+      "emoji": "⭐",
+      "icon": "star_hairpin.png",
+      "rarity": "rare",
+      "desc": "别在头发上的星星，晚上会反一点光",
+      "effect": {
+        "intimacy": 9,
+        "joy": 6,
+        "attachment": 3,
+        "stress": -2,
+        "wish": 3
+      },
+      "unlock": {
+        "kind": "milestone",
+        "conditions": [
+          {
+            "stat": "intimacy_peak",
+            "op": ">=",
+            "value": 50,
+            "label": "历史最高亲密"
+          }
+        ],
+        "hint": "她好像想要一个亮亮的小东西"
+      },
+      "source": "历史最高亲密 50",
+      "lines": [
+        "替我别上，别弄歪了",
+        "星星戴好了，像不像你今晚的运气"
+      ],
+      "animation": {
+        "particle": "star",
+        "color": "#ffe066",
+        "motion": "sparkle"
+      },
+      "aliases": [
+        "发夹",
+        "星星",
+        "星星发夹"
+      ],
+      "kind": "item"
+    },
+    {
+      "id": "letter",
+      "name": "手写信",
+      "emoji": "💌",
+      "icon": "letter.png",
+      "rarity": "rare",
+      "desc": "手写的信，比消息慢，但能留很久",
+      "effect": {
+        "intimacy": 10,
+        "joy": 7,
+        "attachment": 4,
+        "stress": -3,
+        "wish": 4
+      },
+      "unlock": {
+        "kind": "milestone",
+        "conditions": [
+          {
+            "stat": "intimacy_peak",
+            "op": ">=",
+            "value": 60,
+            "label": "历史最高亲密"
+          }
+        ],
+        "hint": "她提过一句，好久没收到信了"
+      },
+      "source": "历史最高亲密 60",
+      "lines": [
+        "还写情书，土不土啊",
+        "……我再读一遍就收起来"
+      ],
+      "animation": {
+        "particle": "sparkle",
+        "color": "#ffd6e7",
+        "motion": "unfold"
+      },
+      "aliases": [
+        "信",
+        "手写信",
+        "情书"
+      ],
+      "kind": "item"
+    },
+    {
+      "id": "plush",
+      "name": "胖鱼玩偶",
+      "emoji": "🧸",
+      "icon": "plush.png",
+      "rarity": "rare",
+      "desc": "一只软乎乎的胖鱼，抱起来刚好",
+      "effect": {
+        "intimacy": 11,
+        "joy": 8,
+        "attachment": 4,
+        "stress": -3,
+        "wish": 4
+      },
+      "unlock": {
+        "kind": "milestone",
+        "conditions": [
+          {
+            "stat": "chat_total",
+            "op": ">=",
+            "value": 200
+          }
+        ]
+      },
+      "source": "聊天累计 200 句",
+      "lines": [
+        "这么大一只，放哪儿啊",
+        "晚上抱着睡，勉为其难"
+      ],
+      "animation": {
+        "particle": "heart",
+        "color": "#9ad7ff",
+        "motion": "hug"
+      },
+      "aliases": [
+        "玩偶",
+        "娃娃",
+        "胖鱼玩偶",
+        "抱枕"
+      ],
+      "kind": "item"
+    },
+    {
+      "id": "firework",
+      "name": "一起看烟花",
+      "emoji": "🎆",
+      "icon": "firework.png",
+      "rarity": "epic",
+      "desc": "一起看的烟花，才算数",
+      "effect": {
+        "intimacy": 12,
+        "joy": 10,
+        "attachment": 3,
+        "stress": -4,
+        "wish": 4
+      },
+      "unlock": {
+        "kind": "milestone",
+        "conditions": [
+          {
+            "stat": "intimacy_peak",
+            "op": ">=",
+            "value": 70,
+            "label": "历史最高亲密"
+          }
+        ],
+        "hint": "她说烟花要两个人看才算"
+      },
+      "source": "历史最高亲密 70",
+      "lines": [
+        "烟花要一起看才算数",
+        "下次别一个人放，叫我"
+      ],
+      "animation": {
+        "particle": "confetti",
+        "color": "#ff8fab",
+        "motion": "burst"
+      },
+      "aliases": [
+        "烟花",
+        "看烟花"
+      ],
+      "kind": "item"
+    },
+    {
+      "id": "song",
+      "name": "专属小情歌",
+      "emoji": "🎵",
+      "icon": "song.png",
+      "rarity": "epic",
+      "desc": "只唱给你听的小调，歌词是她现编的",
+      "effect": {
+        "intimacy": 13,
+        "joy": 10,
+        "attachment": 4,
+        "stress": -5,
+        "wish": 5
+      },
+      "unlock": {
+        "kind": "milestone",
+        "conditions": [
+          {
+            "stat": "chat_total",
+            "op": ">=",
+            "value": 365
+          }
+        ]
+      },
+      "source": "聊天累计 365 句",
+      "lines": [
+        "唱得还行吧，我就夸一句",
+        "这首歌我记住了，别改"
+      ],
+      "animation": {
+        "particle": "note",
+        "color": "#a78bfa",
+        "motion": "float"
+      },
+      "aliases": [
+        "歌",
+        "情歌",
+        "小情歌",
+        "唱歌"
+      ],
+      "kind": "item"
+    },
+    {
+      "id": "balloon",
+      "name": "一束气球",
+      "emoji": "🎈",
+      "icon": "balloon.png",
+      "rarity": "epic",
+      "desc": "一束会飞的气球，幼稚但开心",
+      "effect": {
+        "intimacy": 14,
+        "joy": 8,
+        "attachment": 3,
+        "stress": -3,
+        "wish": 4
+      },
+      "unlock": {
+        "kind": "milestone",
+        "conditions": [
+          {
+            "stat": "chat_total",
+            "op": ">=",
+            "value": 520
+          }
+        ]
+      },
+      "source": "聊天累计 520 句",
+      "lines": [
+        "这么多气球，幼稚死了",
+        "……挑一个最喜欢的，剩下的放天上"
+      ],
+      "animation": {
+        "particle": "confetti",
+        "color": "#7fd8e8",
+        "motion": "rise"
+      },
+      "aliases": [
+        "气球",
+        "一束气球"
+      ],
+      "kind": "item"
+    },
+    {
+      "id": "cake",
+      "name": "生日蛋糕",
+      "emoji": "🎂",
+      "icon": "cake.png",
+      "rarity": "epic",
+      "desc": "蛋糕上写她的名字，许愿时替你也许了一个",
+      "effect": {
+        "intimacy": 16,
+        "joy": 12,
+        "attachment": 5,
+        "stress": -5,
+        "wish": 5
+      },
+      "unlock": {
+        "kind": "milestone",
+        "conditions": [
+          {
+            "stat": "intimacy_peak",
+            "op": ">=",
+            "value": 80,
+            "label": "历史最高亲密"
+          }
+        ],
+        "hint": "她没说过，但你应该知道"
+      },
+      "source": "历史最高亲密 80",
+      "lines": [
+        "蛋糕上写我名字了？",
+        "许愿的时候，顺便替你许了一个"
+      ],
+      "animation": {
+        "particle": "sparkle",
+        "color": "#ffd166",
+        "motion": "wish"
+      },
+      "aliases": [
+        "生日蛋糕",
+        "生日"
+      ],
+      "kind": "food"
+    },
+    {
+      "id": "key",
+      "name": "她房间的钥匙",
+      "emoji": "🗝️",
+      "icon": "key.png",
+      "rarity": "legendary",
+      "desc": "一把钥匙，意思是你可以随时回来",
+      "effect": {
+        "intimacy": 18,
+        "joy": 12,
+        "attachment": 8,
+        "stress": -6,
+        "wish": 6
+      },
+      "unlock": {
+        "kind": "milestone",
+        "conditions": [
+          {
+            "stat": "intimacy_peak",
+            "op": ">=",
+            "value": 90,
+            "label": "历史最高亲密"
+          }
+        ],
+        "hint": "她想知道，你是不是真的不走了"
+      },
+      "source": "历史最高亲密 90",
+      "lines": [
+        "钥匙给我，不怕我半夜跑过去？",
+        "那我就收着了，你别反悔"
+      ],
+      "animation": {
+        "particle": "star",
+        "color": "#ffd700",
+        "motion": "sparkle"
+      },
+      "aliases": [
+        "钥匙",
+        "房间钥匙"
+      ],
+      "kind": "item"
+    },
+    {
+      "id": "heart",
+      "name": "一颗真心",
+      "emoji": "❤️",
+      "icon": "heart.png",
+      "rarity": "legendary",
+      "desc": "她最后能拿出来的东西，收不回去",
+      "effect": {
+        "intimacy": 25,
+        "joy": 20,
+        "attachment": 10,
+        "stress": -8,
+        "wish": 8
+      },
+      "unlock": {
+        "kind": "milestone",
+        "hidden": true,
+        "conditions": [
+          {
+            "stat": "gifts_sent",
+            "op": ">=",
+            "value": 10,
+            "label": "送出礼物"
+          }
+        ],
+        "reveal": [
+          {
+            "stat": "gifts_sent",
+            "op": ">=",
+            "value": 8
+          }
+        ],
+        "hint": "把很多心意都送出去之后，她会不会把心也给你"
+      },
+      "source": "？？？",
+      "lines": [
+        "……这个太重了，我先抱一会儿",
+        "以后别随便给，收不回去的"
+      ],
+      "animation": {
+        "particle": "heart",
+        "color": "#ff5c8a",
+        "motion": "pulse"
+      },
+      "aliases": [
+        "真心",
+        "一颗真心"
+      ],
+      "kind": "item"
+    },
+    {
+      "id": "lullaby",
+      "name": "她等你的歌",
+      "emoji": "🎶",
+      "icon": "lullaby.png",
+      "rarity": "secret",
+      "desc": "她一个人等到很晚时哼的歌，你偶然听见了",
+      "effect": {
+        "intimacy": 12,
+        "joy": 6,
+        "attachment": 6,
+        "stress": -6,
+        "wish": 3
+      },
+      "unlock": {
+        "kind": "milestone",
+        "hidden": true,
+        "conditions": [
+          {
+            "stat": "expectation_peak",
+            "op": ">=",
+            "value": 85,
+            "label": "她等过你"
+          }
+        ],
+        "reveal": [
+          {
+            "stat": "expectation_peak",
+            "op": ">=",
+            "value": 40
+          }
+        ],
+        "hint": "她等你等到很晚的时候，会一个人哼歌"
+      },
+      "source": "？？？",
+      "lines": [
+        "你听见了？我随便哼的",
+        "……下次等我睡着了，再走"
+      ],
+      "animation": {
+        "particle": "note",
+        "color": "#a78bfa",
+        "motion": "float"
+      },
+      "aliases": [
+        "哼歌",
+        "八音盒",
+        "等你的歌"
+      ],
+      "kind": "item"
+    }
+  ]
+}

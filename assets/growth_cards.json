@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "note": "今日卡文案模板：全部用真实统计填充，不调模型。花括号里是占位符。",
+  "headline": [
+    { "when": "broke", "text": "今天她把话说满了" },
+    { "when": "conflict", "text": "今天有点闷" },
+    { "when": "wish_and_feed", "text": "今天她是被偏爱的那个" },
+    { "when": "quiet", "text": "今天她等了你很久" },
+    { "when": "normal", "text": "今天过得还行" },
+    { "when": "first", "text": "这是你们的第一张卡" }
+  ],
+  "lines": {
+    "chat": "你找她说了 {chat} 句，她记得其中 {keeps} 句的内容。",
+    "chat_zero": "今天你没来找她。她没问，但把今天翻过去的时候停了一下。",
+    "feed": "喂了她 {feed} 次：{feed_names}。",
+    "gift": "你送出 {gift} 件礼物，她嘴上不说，心里记了 {gift} 笔。",
+    "reverse": "她主动给了你 {reverse} 样东西（{reverse_reason}）。",
+    "wish_done": "今天的心愿「{wish}」等到了。",
+    "wish_miss": "今天的心愿「{wish}」没等到，她没说第二遍。",
+    "conflict": "有 {conflict} 次她觉得被敷衍了，扣掉的好感度她没追回来。",
+    "broke": "好感度当天刷满了，溢出来的部分她拿去说了句心里话。",
+    "night": "深夜事件：{night_tag}——「{night_line}」",
+    "care": "你照顾了她 {care} 次（关灯、递水、安静陪着）。",
+    "spend": "今天为她花掉 {spent} 点好感度。",
+    "achv": "今天新解锁 {achv} 个成就：{achv_names}。",
+    "mood": "她的心情从 {mood_from} 变成 {mood_to}。",
+    "furniture": "小窝里现在有 {furniture} 件东西。"
+  },
+  "keepsake": [
+    "她留下的一句话：「{quote}」",
+    "她记住了今天这件小事：{quote}",
+    "今天的纪念品是一段话：{quote}"
+  ],
+  "reverse_reason": {
+    "good": "她今天心情不错",
+    "bad": "她今天不太高兴，还是想给你点什么"
+  },
+  "fallback_quote": "……没什么，就是想说一句。",
+  "empty_day": "今天什么都没发生。她把这个空档也存下来了。"
+}

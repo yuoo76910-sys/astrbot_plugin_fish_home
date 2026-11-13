@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "note": "换美术只改这张表：把新图放进对应目录，再把文件名写在这里，不用动代码。",
+  "char": {
+    "dir": "./assets/char/act",
+    "freeze_dir": "./assets/char/act/freeze",
+    "idle": "idle.gif",
+    "walk": "walk.gif",
+    "acts": {
+      "pout": "pout.gif",
+      "delight": "delight.gif",
+      "disgust": "disgust.gif",
+      "angry": "angry.gif",
+      "love": "love.gif",
+      "shy": "shy.gif",
+      "speechless": "speechless.gif",
+      "surprise": "surprise.gif",
+      "sit": "sit.gif",
+      "phone": "phone.gif"
+    }
+  },
+  "window": {
+    "dir": "./assets/bg/window",
+    "clear": "clear.webp",
+    "rain": "rain.webp",
+    "snow": "snow.webp",
+    "night": "night.webp"
+  },
+  "room": {
+    "dir": "./assets/bg",
+    "clear": "clear_开灯.webp",
+    "rain": "rain_开灯.webp",
+    "snow": "snow_开灯.webp",
+    "night": "night_开灯.webp",
+    "default": "now_开灯.webp"
+  },
+  "furniture": {
+    "dir": "./assets/furniture",
+    "patch_rug": "patch_rug.png",
+    "bili_badge": "bili_badge.png",
+    "bowl": "bowl.png"
+  },
+  "diy": {
+    "dir": "./assets/skin/diy"
+  }
+}

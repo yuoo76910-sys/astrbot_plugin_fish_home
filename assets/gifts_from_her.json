@@ -1,0 +1,252 @@
+{
+  "gifts": [
+    {
+      "id": "hg_shell",
+      "name": "一枚捡来的贝壳",
+      "icon": "hg_shell.png",
+      "rarity": "common",
+      "cond": [
+        {
+          "stat": "level",
+          "op": ">=",
+          "value": 3
+        }
+      ],
+      "hint": "亲密攒到一定程度之后，她在沙滩上想到的第一件事。",
+      "lines": [
+        "潮水冲上来的，不是我准备的。",
+        "……别问，问就是顺手。",
+        "放耳朵边能听见海。你听听。"
+      ],
+      "once": true,
+      "hidden": false
+    },
+    {
+      "id": "hg_ribbon",
+      "name": "分一半的发带",
+      "icon": "hg_ribbon.png",
+      "rarity": "rare",
+      "cond": [
+        {
+          "stat": "level",
+          "op": ">=",
+          "value": 5
+        }
+      ],
+      "hint": "亲密再往上攒攒，她会多出一件不想留着的东西。",
+      "lines": [
+        "……别问为什么是两条。",
+        "剪开的。一半在你那，跑不了。",
+        "戴不戴随你。……我天天戴。"
+      ],
+      "once": true,
+      "hidden": false
+    },
+    {
+      "id": "hg_star_jar",
+      "name": "星星罐",
+      "icon": "hg_star_jar.png",
+      "rarity": "epic",
+      "cond": [
+        {
+          "stat": "level",
+          "op": ">=",
+          "value": 10
+        }
+      ],
+      "hint": "听说亲密攒到两位数，她会把一种很亮的东西给你。",
+      "lines": [
+        "攒了一阵了，今天够亮就给你。",
+        "摇一下会响。别摇碎。",
+        "最亮那颗是上周三的。你忘了？我没忘。"
+      ],
+      "once": true,
+      "hidden": false
+    },
+    {
+      "id": "hg_crane",
+      "name": "折纸千纸鹤",
+      "icon": "hg_crane.png",
+      "rarity": "rare",
+      "cond": [
+        {
+          "stat": "streak",
+          "op": ">=",
+          "value": 7
+        }
+      ],
+      "hint": "连着七天都来找她，她手里会多一只纸鹤。",
+      "lines": [
+        "第七天，手熟了一点。",
+        "一只。不是第一千只。我数了。",
+        "翅膀那里折坏了三次，凑合看。"
+      ],
+      "once": true,
+      "hidden": false
+    },
+    {
+      "id": "hg_photo",
+      "name": "一张合照",
+      "icon": "hg_photo.png",
+      "rarity": "legendary",
+      "cond": [
+        {
+          "stat": "streak",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "hint": "很久很久的陪伴之后，她想把那天留下来。",
+      "lines": [
+        "站远一点……好了，别动。",
+        "拍糊了。不许换，就这张。",
+        "三十天了。相纸就这么点大。"
+      ],
+      "once": true,
+      "hidden": false
+    },
+    {
+      "id": "hg_bento",
+      "name": "她做的便当",
+      "icon": "hg_bento.png",
+      "rarity": "epic",
+      "cond": [
+        {
+          "stat": "foods_distinct",
+          "op": ">=",
+          "value": 8
+        }
+      ],
+      "hint": "八样食物都喂过她之后，她会反过来喂你一次。",
+      "lines": [
+        "你喂我那么多，还一顿。",
+        "猕猴桃放最底下了。不许挑。",
+        "凉了我不管。热的时候拍的照。"
+      ],
+      "once": true,
+      "hidden": false
+    },
+    {
+      "id": "hg_first_day",
+      "name": "第一天的日历页",
+      "icon": "hg_first_day.png",
+      "rarity": "rare",
+      "cond": [
+        {
+          "stat": "day_index",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "hint": "她留着认识你那天的一页纸，到某个整日子才肯给。",
+      "lines": [
+        "这页我留着呢。",
+        "第一天的。字那天就写好了，今天才敢给你。",
+        "别笑。那天你发的第一句我记错了，记到现在。"
+      ],
+      "once": true,
+      "hidden": false
+    },
+    {
+      "id": "hg_lantern",
+      "name": "她留的灯",
+      "icon": "hg_lantern.png",
+      "rarity": "rare",
+      "cond": [
+        {
+          "stat": "late_nights",
+          "op": ">=",
+          "value": 1
+        }
+      ],
+      "hint": "好感度刷满的那个深夜，她好像多做了点什么。",
+      "lines": [
+        "那天你刷满了，我睡不着。",
+        "就点了一小会儿。真的，一小会儿。",
+        "灯不关。你哪天晚回来，它在就行。"
+      ],
+      "once": true,
+      "hidden": false
+    },
+    {
+      "id": "hg_key",
+      "name": "一把钥匙",
+      "icon": "hg_key.png",
+      "rarity": "secret",
+      "cond": [
+        {
+          "stat": "ach_done_others",
+          "op": ">=",
+          "value": 30
+        }
+      ],
+      "hint": "？？？",
+      "lines": [
+        "全收集了？这个给你。",
+        "别问我开哪把锁。……你迟早会撞上的。",
+        "本来想带进棺材的。给你给你。"
+      ],
+      "once": true,
+      "hidden": true
+    }
+  ],
+  "signal_gifts": [
+    {
+      "id": "sg_note",
+      "name": "一张小纸条",
+      "icon": "letter.png",
+      "rarity": "rare",
+      "tags": [
+        "self_neglect",
+        "extreme"
+      ],
+      "line": "别撑着。{evidence}——我听见了。"
+    },
+    {
+      "id": "sg_cocoa",
+      "name": "一杯热可可",
+      "icon": "food_hot_cocoa.png",
+      "rarity": "common",
+      "tags": [
+        "sick",
+        "tired",
+        "no_meal",
+        "stay_up"
+      ],
+      "line": "昨天你说{evidence}……这个甜的，喝完早点睡。"
+    },
+    {
+      "id": "sg_oden",
+      "name": "一碗关东煮",
+      "icon": "food_oden.png",
+      "rarity": "common",
+      "tags": [
+        "work_late",
+        "exam"
+      ],
+      "line": "你说{evidence}……热的，先垫一口再扛。"
+    },
+    {
+      "id": "sg_cupcake",
+      "name": "纸杯小蛋糕",
+      "icon": "cupcake.png",
+      "rarity": "common",
+      "tags": [
+        "fight",
+        "scolded",
+        "cold_shoulder"
+      ],
+      "line": "听说了，{evidence}……甜的能顶一会儿。"
+    },
+    {
+      "id": "sg_lullaby",
+      "name": "一段摇篮曲",
+      "icon": "lullaby.png",
+      "rarity": "rare",
+      "tags": [
+        "insomnia"
+      ],
+      "line": "你说{evidence}……这个我哼给你，不许偷听。"
+    }
+  ]
+}

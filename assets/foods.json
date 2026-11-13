@@ -1,0 +1,220 @@
+{
+  "foods": [
+    {
+      "id": "rice",
+      "name": "白米饭",
+      "emoji": "🍚",
+      "icon": "food_rice.png",
+      "price": 0,
+      "free_daily": 3,
+      "rarity": "common",
+      "rarity_cn": "普通",
+      "desc": "每天给你留三碗，热乎的。",
+      "radar": {
+        "fatigue": -0.2,
+        "duty": 0.2,
+        "intimacy": 0.1
+      },
+      "line": "……这一碗，我吃得很认真。",
+      "action": "chew",
+      "action_text": "她埋头扒了两口饭"
+    },
+    {
+      "id": "strawberry_candy",
+      "name": "草莓糖",
+      "emoji": "🍬",
+      "icon": "food_strawberry_candy.png",
+      "price": 3,
+      "rarity": "common",
+      "rarity_cn": "普通",
+      "desc": "街角小店的糖，甜得很直接。",
+      "radar": {
+        "joy": 0.3,
+        "curiosity": 0.1
+      },
+      "line": "甜。……就一颗啊。",
+      "action": "sweet",
+      "action_text": "她把糖含在腮帮子里，眯起眼"
+    },
+    {
+      "id": "kiwi",
+      "name": "半个猕猴桃",
+      "emoji": "🥝",
+      "icon": "food_kiwi.png",
+      "price": 6,
+      "rarity": "common",
+      "rarity_cn": "普通",
+      "desc": "切开的一半，用勺子挖着吃。",
+      "radar": {
+        "joy": 0.2,
+        "curiosity": 0.3,
+        "fatigue": -0.1
+      },
+      "line": "……好酸。你别看我。",
+      "action": "sour",
+      "action_text": "她被酸得抖了一下，耳朵都竖起来"
+    },
+    {
+      "id": "pudding",
+      "name": "布丁",
+      "emoji": "🍮",
+      "icon": "food_pudding.png",
+      "price": 12,
+      "rarity": "rare",
+      "rarity_cn": "精良",
+      "desc": "甜品店的招牌，会晃，她戳一下再吃。",
+      "radar": {
+        "joy": 0.6,
+        "intimacy": 0.2,
+        "curiosity": 0.2
+      },
+      "line": "别戳了，都要塌了。",
+      "action": "wobble",
+      "action_text": "她戳了戳布丁，自己也跟着晃"
+    },
+    {
+      "id": "oden",
+      "name": "关东煮",
+      "emoji": "🍢",
+      "icon": "food_oden.png",
+      "price": 18,
+      "rarity": "rare",
+      "rarity_cn": "精良",
+      "desc": "便利店热乎的一大碗，吃完话会多一点。",
+      "radar": {
+        "joy": 0.5,
+        "social": 0.4,
+        "fatigue": -0.5
+      },
+      "line": "呼——先吹一下。……你也吃一口。",
+      "action": "steam",
+      "action_text": "她捧着碗吹气，热气糊到脸上"
+    },
+    {
+      "id": "ramen",
+      "name": "拉面",
+      "emoji": "🍜",
+      "icon": "food_ramen.png",
+      "price": 26,
+      "rarity": "epic",
+      "rarity_cn": "稀有",
+      "desc": "一碗现做的热汤面，吃完能顶一整天。",
+      "radar": {
+        "fatigue": -0.7,
+        "duty": 0.5,
+        "intimacy": 0.4,
+        "joy": 0.2
+      },
+      "line": "吸溜——这个管饱。谢谢。",
+      "action": "slurp",
+      "action_text": "她低头吸了一大口面"
+    },
+    {
+      "id": "pizza",
+      "name": "披萨",
+      "emoji": "🍕",
+      "icon": "food_pizza.png",
+      "price": 68,
+      "rarity": "epic",
+      "rarity_cn": "稀有",
+      "desc": "一大块现烤的，芝士能拉很长——最贵的一份。",
+      "radar": {
+        "joy": 0.9,
+        "social": 0.6,
+        "intimacy": 0.5,
+        "curiosity": 0.3
+      },
+      "line": "拉这么长……你拍下来了吗。",
+      "action": "cheese",
+      "action_text": "她咬住一角，芝士拉出长长的丝"
+    },
+    {
+      "id": "hot_cocoa",
+      "name": "热可可",
+      "emoji": "☕",
+      "icon": "food_hot_cocoa.png",
+      "price": 10,
+      "rarity": "rare",
+      "rarity_cn": "精良",
+      "desc": "很浓的一杯，上面漂两颗棉花糖，她要先吹。",
+      "radar": {
+        "joy": 0.4,
+        "intimacy": 0.2,
+        "fatigue": -0.3,
+        "stress": -0.3
+      },
+      "line": "呼——太烫。……但甜的。棉花糖是我的。",
+      "action": "steam",
+      "action_text": "她捧着杯子先吹一口，再偷偷把棉花糖按下去"
+    }
+  ],
+  "reverse_gifts": {
+    "good": [
+      {
+        "id": "rg_firework",
+        "name": "一朵烟花",
+        "emoji": "🎆",
+        "anim": "firework",
+        "desc": "她说是随手放的，其实挑了很久。"
+      },
+      {
+        "id": "rg_star",
+        "name": "一颗星星",
+        "emoji": "⭐",
+        "anim": "stars",
+        "desc": "从她今天的心情里掉出来的一颗。"
+      },
+      {
+        "id": "rg_letter",
+        "name": "一张小纸条",
+        "emoji": "📝",
+        "anim": "paper",
+        "desc": "折了三折，边角有点毛。"
+      },
+      {
+        "id": "rg_flower",
+        "name": "一小束花",
+        "emoji": "🌼",
+        "anim": "petals",
+        "desc": "她说是路上捡的，路是你家楼下。"
+      },
+      {
+        "id": "rg_candy",
+        "name": "她留的糖",
+        "emoji": "🍬",
+        "anim": "sparkle",
+        "desc": "她说太甜了，你吃。"
+      }
+    ],
+    "bad": [
+      {
+        "id": "rg_stone",
+        "name": "一块冷石头",
+        "emoji": "🪨",
+        "anim": "dust",
+        "desc": "她今天不想说话，丢给你这个。"
+      },
+      {
+        "id": "rg_cold_tea",
+        "name": "凉掉的茶",
+        "emoji": "🍵",
+        "anim": "dust",
+        "desc": "放了一下午，她没动过。"
+      },
+      {
+        "id": "rg_rain",
+        "name": "一场小雨",
+        "emoji": "🌧️",
+        "anim": "rain",
+        "desc": "她把今天的天气塞给你。"
+      },
+      {
+        "id": "rg_thorn",
+        "name": "带刺的枝",
+        "emoji": "🥀",
+        "anim": "ash",
+        "desc": "她递过来的时候手也扎了一下。"
+      }
+    ]
+  }
+}
