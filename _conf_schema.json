@@ -54,9 +54,9 @@
             },
             "city": {
                 "type": "string",
-                "default": "杭州",
+                "default": "北京",
                 "description": "城市",
-                "hint": "填你所在的城市（现在是清远），她窗外那张图按这个城市的实况画。"
+                "hint": "填你所在的城市名（如 北京、上海、广州），她窗外那张图按这个城市的实况画。"
             },
             "auto_season": {
                 "type": "bool",

@@ -38,10 +38,11 @@ from astrbot.api.event import AstrMessageEvent, MessageChain, filter
 from astrbot.api.message_components import Image, Plain
 from astrbot.api.star import Context, Star, StarTools, register
 from astrbot.api.web import request as web_request
+from astrbot.core.agent.message import TextPart
 from astrbot.core.config.astrbot_config import AstrBotConfig
 
 PLUGIN_NAME = "astrbot_plugin_fish_home"
-VERSION = "0.2.1"
+VERSION = "0.2.3"
 PLUGIN_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # --------------------------------------------------------------------------- #
@@ -833,11 +834,8 @@ class FishHome(Star):
         self.signal_gifts = [x for x in (_hg_raw.get("signal_gifts") or []) if isinstance(x, dict) and x.get("id")]
         self.her_gift_map = {str(g.get("id")): g for g in self.her_gifts + self.signal_gifts}
 
-        try:
-            self.data_dir = str(StarTools.get_data_dir(PLUGIN_NAME))
-        except Exception as e:
-            logger.warning("[鱼的窝] 获取数据目录失败，退回插件内目录: %s", e)
-            self.data_dir = os.path.join(PLUGIN_DIR, "data")
+        # 数据目录拿不到就直接失败（市场审查建议）：静默退回插件目录会让存档在整包升级时被连带清掉
+        self.data_dir = str(StarTools.get_data_dir(PLUGIN_NAME))
         os.makedirs(self.data_dir, exist_ok=True)
         # 家具工坊：自定义家具的库和图片都在 plugin_data，插件整包升级不丢
         self.furn_lib_path = os.path.join(self.data_dir, "custom_furniture.json")
@@ -4713,7 +4711,7 @@ class FishHome(Star):
         """拉一次实况、必要时重画背景。任何一步失败都只保留上一张。"""
         if not bool(self._wx_get("enabled", True)):
             return
-        city = str(self._wx_get("city", "杭州") or "杭州").strip() or "杭州"
+        city = str(self._wx_get("city", "北京") or "北京").strip() or "北京"
         try:
             geo = self.state.get("wx_geo") or {}
             if str(geo.get("city") or "") != city or not geo.get("lat"):
@@ -6139,7 +6137,13 @@ class FishHome(Star):
                     self.state["offline"] = []
             except Exception:
                 pass
-            req.system_prompt = (getattr(req, "system_prompt", "") or "").rstrip() + "\n" + "\n".join(lines)
+            # 市场上下文注入规矩：每轮都在变的动态内容不许拼进 system_prompt（会打碎前缀缓存），
+            # 改走 extra_user_content_parts + mark_as_temp：只随本次请求给模型看一眼，不落会话历史。
+            parts = getattr(req, "extra_user_content_parts", None)
+            if parts is None:
+                parts = []
+                req.extra_user_content_parts = parts
+            parts.append(TextPart(text="\n".join(lines)).mark_as_temp())
             for p in pending:
                 p["notified"] = True
             if daily_hint:
