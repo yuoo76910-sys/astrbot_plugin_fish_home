@@ -34,8 +34,9 @@ desc: |
   家具工坊 · 精绘模式（v0.2.1，可选）：在设置里填一个兼容 OpenAI 接口（默认硅基流动）的生图 API Key，工坊就改用生图模型把这句话画出来，再本地抠图（四边洪水抠底色）、降采样、限到 8 色、自动描边，产出跟施工图完全同规格的像素家具——比纯图元更细腻，代价是每张慢十几秒、按张计费。Key 留空就是默认的 LLM 施工图模式，不填任何东西照常可用；精绘接口失败会自动退回施工图，不浪费这次生成。
 
   前置插件：astrbot_plugin_fish_heart（她的心情、九维、责难都从那里读）。
-version: v0.2.1
+version: v0.2.2
 author: zexuan604
+repo: https://github.com/yuoo76910-sys/astrbot_plugin_fish_home
 astrbot_version: ">=4.20"
 support_platforms:
   - aiocqhttp
